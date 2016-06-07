@@ -8,7 +8,7 @@ long long int cumfun(const void * a, const void * b)
 
 main()
 {
-long long int arr[1000],number,i,k,l;
+long long int arr[1000],number,i,k,l,fg=0;
 char str[10000];
 scanf("%s",str);
 scanf("%lld",&k);
@@ -18,8 +18,13 @@ for(i=0;i<l;i++)
 qsort(arr,l,sizeof(long long int), cumfun);
 for(i=0;i<l-k;i++)
 {
-if(arr[i]!=0)
+if(arr[i]!=0){
 printf("%lld",arr[i]);
+fg=1;}
+if(arr[i]==0&&fg==0)
+	fg=0;
 }
+if(fg==0)
+printf("0");
 return 0;
 }
